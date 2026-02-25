@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% block title %}Cafe | Home{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="pill">Open daily • Fresh bakes • Cozy seating</p>
+
+      <h1 class="hero-title">Specialty coffee & fresh bakes, served daily.</h1>
+
+      <p class="hero-sub">
+        Cozy seating, fast Wi-Fi, and seasonal menu items. Reserve a table or walk in anytime.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:{{ site_settings.phone|replace(' ','') }}">Call Now</a>
+        <a class="btn" href="{{ url_for('menu') }}">View Menu</a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="badge">
+          <div class="badge-title">4.8★</div>
+          <div class="badge-sub">Loved by locals</div>
+        </div>
+        <div class="badge">
+          <div class="badge-title">20 min</div>
+          <div class="badge-sub">Quick service</div>
+        </div>
+        <div class="badge">
+          <div class="badge-title">Free Wi-Fi</div>
+          <div class="badge-sub">Work friendly</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-card">
+        <div class="hero-card-title">Today’s Special</div>
+        <div class="hero-card-item">
+          <span>Caramel Latte</span>
+          <span class="price">Rs. 480</span>
+        </div>
+        <div class="hero-card-item">
+          <span>Butter Croissant</span>
+          <span class="price">Rs. 220</span>
+        </div>
+        <div class="hero-card-item">
+          <span>Brunch Plate</span>
+          <span class="price">Rs. 750</span>
+        </div>
+        <a class="btn btn-primary hero-card-cta" href="{{ url_for('menu') }}">Explore Menu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="container section">
+  <div class="section-head">
+    <h2 class="h1" style="font-size: clamp(22px, 2.2vw, 30px);">Why people love Cafe</h2>
+    <p class="lead">Small details that make a big difference.</p>
+  </div>
+
+  <div class="feature-grid">
+    <article class="card feature">
+      <div class="feature-icon"><i class="bi bi-cup-hot"></i></div>
+      <h3 class="h2">Specialty Coffee</h3>
+      <p class="muted">Single-origin espresso, house-made syrups, and smooth cold brews.</p>
+    </article>
+
+    <article class="card feature">
+      <div class="feature-icon"><i class="bi bi-bag-heart"></i></div>
+      <h3 class="h2">Fresh Bakery</h3>
+      <p class="muted">Baked daily. Croissants, muffins, cinnamon rolls, and cheesecake.</p>
+    </article>
+
+    <article class="card feature">
+      <div class="feature-icon"><i class="bi bi-wifi"></i></div>
+      <h3 class="h2">Cozy Space</h3>
+      <p class="muted">Comfortable seating, calm vibe, and fast Wi-Fi for work or meetups.</p>
+    </article>
+  </div>
+</section>
+
+<!-- FEATURED ITEMS -->
+<section class="container section">
+  <div class="section-head">
+    <h2 class="h1" style="font-size: clamp(22px, 2.2vw, 30px);">Featured this week</h2>
+    <p class="lead">Customer favorites — perfect for a quick treat or brunch.</p>
+  </div>
+
+  <div class="product-grid">
+    <article class="card product">
+      <div class="product-img">
+        <img src="{{ url_for('static', filename='img/latte.jpg') }}" alt="Latte">
+      </div>
+      <div class="product-body">
+        <div class="product-top">
+          <h3 class="h2">Signature Latte</h3>
+          <span class="price">Rs. 420</span>
+        </div>
+        <p class="muted">Balanced espresso, silky milk, optional vanilla/caramel.</p>
+        <a class="btn" href="{{ url_for('menu') }}">See details</a>
+      </div>
+    </article>
+
+    <article class="card product">
+      <div class="product-img">
+        <img src="{{ url_for('static', filename='img/croissant.jpg') }}" alt="Croissant">
+      </div>
+      <div class="product-body">
+        <div class="product-top">
+          <h3 class="h2">Butter Croissant</h3>
+          <span class="price">Rs. 220</span>
+        </div>
+        <p class="muted">Flaky, buttery, baked fresh every morning.</p>
+        <a class="btn" href="{{ url_for('menu') }}">See details</a>
+      </div>
+    </article>
+
+    <article class="card product">
+      <div class="product-img">
+        <img src="{{ url_for('static', filename='img/pasta.jpg') }}" alt="Brunch bowl or pasta">
+      </div>
+      <div class="product-body">
+        <div class="product-top">
+          <h3 class="h2">Brunch Bowl</h3>
+          <span class="price">Rs. 690</span>
+        </div>
+        <p class="muted">Protein + greens + house dressing. Simple and satisfying.</p>
+        <a class="btn" href="{{ url_for('menu') }}">See details</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<section class="container section">
+  <div class="section-head">
+    <h2 class="h1" style="font-size: clamp(22px, 2.2vw, 30px);">A peek inside</h2>
+    <p class="lead">Warm lights, comfy chairs, and a calm café vibe.</p>
+  </div>
+
+  <div class="gallery">
+    <img src="{{ url_for('static', filename='img/gallery1.jpg') }}" alt="Cafe interior">
+    <img src="{{ url_for('static', filename='img/gallery2.jpg') }}" alt="Coffee being poured">
+    <img src="{{ url_for('static', filename='img/gallery3.jpg') }}" alt="Fresh baked items">
+    <img src="{{ url_for('static', filename='img/gallery4.jpg') }}" alt="Seating area">
+  </div>
+</section>
+
+<!-- TESTIMONIAL + CTA -->
+<section class="container section">
+  <div class="cta">
+    <div class="cta-left">
+      <h2 class="cta-title">Ready for your next coffee break?</h2>
+      <p class="cta-sub">Reserve a table for brunch, or swing by for a quick takeaway.</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:{{ site_settings.phone|replace(' ','') }}">Call Now</a>
+        <a class="btn" href="{{ url_for('contact') }}">Find Us</a>
+      </div>
+
+      <!-- ✅ ADDED: map goes EXACTLY in the empty left side area -->
+      <div class="cta-map">
+        <div class="cta-map-head">
+          <div>
+            <div class="cta-map-title">Find us</div>
+            <div class="cta-map-sub muted">123 Coffee Street, Your City</div>
+          </div>
+          <span class="cta-map-pill">Open in Maps</span>
+        </div>
+
+        <div class="cta-map-frame map map-dark">
+          <iframe title="Cafe location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Kathmandu&output=embed">
+          </iframe>
+        </div>
+
+        <div class="cta-map-actions">
+          <a class="btn" href="https://www.google.com/maps?q=Kathmandu" target="_blank" rel="noopener">Open in Maps</a>
+          <a class="btn btn-primary" href="tel:{{ site_settings.phone|replace(' ','') }}">Call Now</a>
+        </div>
+      </div>
+      <!-- ✅ end map -->
+    </div>
+
+    <div class="cta-right">
+      <div class="review-block">
+        <div class="t-slider" id="tSlider" aria-label="Customer reviews">
+          <button class="t-nav t-prev" type="button" aria-label="Previous review">‹</button>
+
+          <div class="t-viewport">
+            <div class="t-track">
+              {% if reviews and reviews|length > 0 %}
+              {% for r in reviews %}
+              <figure class="t-slide">
+                <div class="t-stars" aria-hidden="true">
+                  {{ "★" * r.rating }}{{ "☆" * (5 - r.rating) }}
+                </div>
+                <blockquote class="t-text">“{{ r.message }}”</blockquote>
+                <figcaption class="t-name">— {{ r.name }}</figcaption>
+              </figure>
+              {% endfor %}
+              {% else %}
+              <!-- ✅ CHANGED: no dummy reviews, only a small empty-state message -->
+              <figure class="t-slide">
+                <div class="t-stars" aria-hidden="true">★★★★★</div>
+                <blockquote class="t-text">“No reviews yet — be the first to leave one!”</blockquote>
+                <figcaption class="t-name">— Cafe</figcaption>
+              </figure>
+              {% endif %}
+            </div>
+          </div>
+
+          <button class="t-nav t-next" type="button" aria-label="Next review">›</button>
+
+          <div class="t-dots" aria-label="Review navigation">
+            {% set dot_count = (reviews|length) if reviews and (reviews|length > 0) else 1 %}
+            {% for i in range(dot_count) %}
+            <button class="t-dot" type="button" aria-label="Go to review {{ i + 1 }}"></button>
+            {% endfor %}
+          </div>
+        </div>
+
+        <form class="review-form" method="post" action="{{ url_for('home') }}" aria-label="Write a review">
+          <div class="review-form-head">
+            <div class="review-form-title">Write a review</div>
+            <div class="review-form-sub muted">Share your experience — it helps others choose.</div>
+          </div>
+
+          <div class="review-form-grid">
+            <label class="field">
+              <span>Your name</span>
+              <input type="text" name="name" placeholder="Your name" required>
+            </label>
+
+            <label class="field">
+              <span>Rating</span>
+              <select name="rating" required>
+                <option value="5">★★★★★ (5)</option>
+                <option value="4">★★★★☆ (4)</option>
+                <option value="3">★★★☆☆ (3)</option>
+                <option value="2">★★☆☆☆ (2)</option>
+                <option value="1">★☆☆☆☆ (1)</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Review</span>
+            <textarea name="message" rows="4" placeholder="What did you like?" required></textarea>
+          </label>
+
+          <button class="btn btn-primary" type="submit">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

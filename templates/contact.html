@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}Cafe | Contact{% endblock %}
+
+{% block content %}
+
+<!-- CONTACT HERO -->
+<section class="container section">
+  <header class="section-head">
+    <h1 class="h1">Contact</h1>
+    <p class="lead">Questions, catering, or feedback — we’d love to hear from you.</p>
+  </header>
+
+  <div class="contact-grid">
+
+    <!-- LEFT: VISIT / INFO -->
+    <article class="card contact-card">
+      <div class="card-head">
+        <h2 class="h2">Visit Us</h2>
+        <p class="muted">We’re easy to find — drop by for coffee, brunch, or takeaway.</p>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-row">
+          <div class="contact-ico"><i class="bi bi-geo-alt"></i></div>
+          <div class="contact-meta">
+            <div class="contact-label">Address</div>
+            <div class="contact-value">123 Coffee Street, Your City</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-ico"><i class="bi bi-telephone"></i></div>
+          <div class="contact-meta">
+            <div class="contact-label">Phone</div>
+            <a class="contact-link" href="tel:+97798XXXXXXXX">+977 98XXXXXXXX</a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-ico"><i class="bi bi-envelope"></i></div>
+          <div class="contact-meta">
+            <div class="contact-label">Email</div>
+            <a class="contact-link" href="mailto:hello@cafe.com">hello@cafe.com</a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-ico"><i class="bi bi-clock"></i></div>
+          <div class="contact-meta">
+            <div class="contact-label">Hours</div>
+            <div class="contact-value">Mon–Fri 8:00–20:00 • Sat 9:00–21:00 • Sun 9:00–18:00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map map-dark">
+        <!-- Replace src with your Google Maps embed link -->
+        <iframe title="Cafe location on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Kathmandu&output=embed"></iframe>
+      </div>
+
+      <div class="contact-actions">
+        <a class="btn" href="https://www.google.com/maps?q=Kathmandu" target="_blank" rel="noopener">
+          <i class="bi bi-map"></i> Open in Maps
+        </a>
+        <a class="btn btn-primary" href="tel:+97798XXXXXXXX">
+          <i class="bi bi-telephone"></i> Call Now
+        </a>
+      </div>
+    </article>
+
+    <!-- RIGHT: FORM -->
+    <article class="card contact-card">
+      <div class="card-head">
+        <h2 class="h2">Send a Message</h2>
+        <p class="muted">We usually reply within 24 hours.</p>
+      </div>
+
+      <form class="form" method="post" action="#">
+        <div class="form-grid">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" name="name" placeholder="Your name" required>
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Subject</span>
+          <input type="text" name="subject" placeholder="Catering, feedback, inquiry...">
+        </label>
+
+        <label class="field">
+          <span>Message</span>
+          <textarea name="message" rows="6" placeholder="How can we help?" required></textarea>
+        </label>
+
+        <div class="contact-form-footer">
+          <button class="btn btn-primary" type="submit">
+            <i class="bi bi-send"></i> Send Message
+          </button>
+          <p class="muted small" style="margin:0;">
+            By sending, you agree we can contact you back via email.
+          </p>
+        </div>
+      </form>
+    </article>
+
+  </div>
+</section>
+
+{% endblock %}

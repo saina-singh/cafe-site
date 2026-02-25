@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+{% block title %}Cafe | Menu{% endblock %}
+
+{% block content %}
+
+<!-- MENU HERO -->
+<section class="menu-hero">
+  <div class="container menu-hero-inner">
+    <div class="menu-hero-copy">
+      <h1 class="h1">Menu</h1>
+      <p class="lead">Seasonal ingredients, house-made syrups, and fresh bakes every morning.</p>
+
+      <div class="menu-tags" aria-label="Highlights">
+        <span class="pill">Vegetarian options</span>
+        <span class="pill">Dairy-free available</span>
+        <span class="pill">Fresh bakery daily</span>
+      </div>
+    </div>
+
+    <div class="menu-hero-media" aria-hidden="true">
+      <img src="{{ url_for('static', filename='img/menu-hero.jpg') }}" alt="">
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+
+  <!-- QUICK CATEGORY NAV -->
+  <nav class="menu-categories" aria-label="Menu categories">
+    <a class="btn" href="#coffee"><i class="bi bi-cup-hot"></i> Coffee</a>
+    <a class="btn" href="#tea"><i class="bi bi-cup-straw"></i> Tea & More</a>
+    <a class="btn" href="#brunch"><i class="bi bi-egg-fried"></i> Brunch</a>
+    <a class="btn" href="#bakery"><i class="bi bi-bag-heart"></i> Bakery</a>
+  </nav>
+
+  <div class="menu-grid">
+
+    <!-- Coffee -->
+    <article id="coffee" class="card menu-card">
+      <div class="menu-card-head">
+        <div>
+          <h2 class="h2">Coffee</h2>
+          <p class="muted">Espresso-based classics + signature drinks</p>
+        </div>
+        <img class="menu-card-img" src="{{ url_for('static', filename='img/menu-coffee.jpg') }}" alt="Coffee drinks">
+      </div>
+
+      <ul class="list menu-list">
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Espresso</div>
+            <div class="menu-desc">Double shot, bold & smooth.</div>
+          </div>
+          <div class="menu-right">
+            <span class="price">Rs. 250</span>
+          </div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Americano</div>
+            <div class="menu-desc">Espresso + hot water, clean finish.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 300</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Cappuccino</div>
+            <div class="menu-desc">Foamy, balanced, classic.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 380</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Latte</div>
+            <div class="menu-desc">Silky milk, optional vanilla/caramel.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 420</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Mocha</div>
+            <div class="menu-desc">Chocolate + espresso, cozy & rich.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 480</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Cold Brew</div>
+            <div class="menu-desc">Slow steeped, naturally sweet.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 450</span></div>
+        </li>
+      </ul>
+    </article>
+
+    <!-- Tea & More -->
+    <article id="tea" class="card menu-card">
+      <div class="menu-card-head">
+        <div>
+          <h2 class="h2">Tea & More</h2>
+          <p class="muted">Comforting blends and cool refreshers</p>
+        </div>
+        <img class="menu-card-img" src="{{ url_for('static', filename='img/menu-tea.jpg') }}"
+          alt="Tea and refreshments">
+      </div>
+
+      <ul class="list menu-list">
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Masala Tea</div>
+            <div class="menu-desc">Spiced and warming.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 220</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Green Tea</div>
+            <div class="menu-desc">Light, fresh, calming.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 240</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Lemon Iced Tea</div>
+            <div class="menu-desc">Citrusy and chilled.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 320</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Hot Chocolate</div>
+            <div class="menu-desc">Rich cocoa, whipped cream optional.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 420</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Fresh Orange Juice</div>
+            <div class="menu-desc">Pressed daily.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 380</span></div>
+        </li>
+      </ul>
+    </article>
+
+    <!-- Brunch -->
+    <article id="brunch" class="card menu-card">
+      <div class="menu-card-head">
+        <div>
+          <h2 class="h2">Brunch</h2>
+          <p class="muted">Served 9 AM – 3 PM</p>
+        </div>
+        <img class="menu-card-img" src="{{ url_for('static', filename='img/menu-brunch.jpg') }}" alt="Brunch plates">
+      </div>
+
+      <ul class="list menu-list">
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Classic Breakfast Plate</div>
+            <div class="menu-desc">Eggs, toast, sautéed veggies, house dip.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 750</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Avocado Toast</div>
+            <div class="menu-desc">Sourdough, avocado, herbs, chili flakes.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 690</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Grilled Chicken Sandwich</div>
+            <div class="menu-desc">House sauce, greens, grilled chicken.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 820</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Veggie Wrap</div>
+            <div class="menu-desc">Fresh veggies, hummus, herbs.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 650</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">House Salad</div>
+            <div class="menu-desc">Greens, seasonal toppings, house dressing.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 620</span></div>
+        </li>
+      </ul>
+    </article>
+
+    <!-- Bakery -->
+    <article id="bakery" class="card menu-card">
+      <div class="menu-card-head">
+        <div>
+          <h2 class="h2">Bakery</h2>
+          <p class="muted">Baked fresh daily</p>
+        </div>
+        <img class="menu-card-img" src="{{ url_for('static', filename='img/menu-bakery.jpg') }}" alt="Bakery items">
+      </div>
+
+      <ul class="list menu-list">
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Butter Croissant</div>
+            <div class="menu-desc">Flaky, buttery, baked every morning.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 220</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Chocolate Muffin</div>
+            <div class="menu-desc">Soft center, chocolate chips.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 260</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Cinnamon Roll</div>
+            <div class="menu-desc">Warm spices + icing.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 320</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Banana Bread Slice</div>
+            <div class="menu-desc">Moist, toasted walnuts.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 280</span></div>
+        </li>
+
+        <li class="menu-item">
+          <div>
+            <div class="menu-name">Cheesecake Slice</div>
+            <div class="menu-desc">Creamy, seasonal topping.</div>
+          </div>
+          <div class="menu-right"><span class="price">Rs. 420</span></div>
+        </li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="note">
+    <div>
+      <div class="note-title">Allergies?</div>
+      <div class="muted">Ask our team about ingredients and customizations.</div>
+    </div>
+    <a class="btn btn-primary" href="{{ url_for('contact') }}">Contact Us</a>
+  </div>
+
+</section>
+
+{% endblock %}

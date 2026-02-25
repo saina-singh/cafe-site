@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Cafe | Reservations{% endblock %}
+
+{% block content %}
+<section class="container section">
+  <header class="section-head">
+    <h1 class="h1">Reservations</h1>
+    <p class="lead">Reserve a table in seconds. We’ll confirm your booking shortly.</p>
+  </header>
+
+  <div class="reserve-grid">
+    <article class="card">
+      <div class="card-head">
+        <h2 class="h2">Book a Table</h2>
+        <p class="muted">Fields marked * are required.</p>
+      </div>
+
+      <form class="form" method="post" action="{{ url_for('reservations') }}">
+        <div class="form-grid">
+          <label class="field">
+            <span>Name *</span>
+            <input type="text" name="name" placeholder="Full name" required>
+          </label>
+
+          <label class="field">
+            <span>Phone *</span>
+            <input type="tel" name="phone" placeholder="+977 98XXXXXXXX" required>
+          </label>
+        </div>
+
+        <div class="form-grid">
+          <label class="field">
+            <span>Guests</span>
+            <select name="guests">
+              {% for g in range(1, 11) %}
+              <option value="{{ g }}">{{ g }}</option>
+              {% endfor %}
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Date *</span>
+            <input type="date" name="date" required>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Time *</span>
+          <input type="time" name="time" required>
+        </label>
+
+        <button class="btn btn-primary" type="submit">Confirm Reservation</button>
+
+        <p class="muted small">
+          By booking, you agree we may contact you to confirm your reservation.
+        </p>
+      </form>
+    </article>
+
+    <aside class="card">
+      <div class="card-head">
+        <h2 class="h2">Good to Know</h2>
+        <p class="muted">A few quick notes before you book</p>
+      </div>
+
+      <ul class="bullets">
+        <li>Reservations are held for 10 minutes past your booked time.</li>
+        <li>For groups of 8+, please contact us for special seating.</li>
+        <li>We can accommodate many dietary needs — just tell us.</li>
+      </ul>
+
+      <div class="note" style="margin-top: 14px;">
+        <div>
+          <div class="note-title">Need help?</div>
+          <div class="muted">Call us at +977 98XXXXXXXX</div>
+        </div>
+        <a class="btn" href="{{ url_for('contact') }}">Contact</a>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}

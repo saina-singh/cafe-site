@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#121212" />
+  <meta name="description" content="Cafe website — specialty coffee, fresh bakes, cozy vibes." />
+
+  <title>{% block title %}Cafe{% endblock %}</title>
+
+  <!-- Font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ url_for('home') }}" aria-label="Cafe Home">
+        <div class="brand-logo-wrapper">
+          <img src="{{ url_for('static', filename='img/cafe-logo.jpeg') }}" alt="Cafe Logo" class="brand-logo">
+        </div>
+        <span class="brand-text">
+          <span class="brand-name">Cafe</span>
+          <span class="brand-tag">Coffee • Brunch • Bakery</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a class="nav-link {% if request.endpoint=='home' %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
+        <a class="nav-link {% if request.endpoint=='menu' %}active{% endif %}" href="{{ url_for('menu') }}">Menu</a>
+
+        {% if site_settings.enable_reservations %}
+        <a class="nav-link {% if request.endpoint=='reservations' %}active{% endif %}"
+          href="{{ url_for('reservations') }}">Reservations</a>
+        {% endif %}
+
+        <a class="nav-link {% if request.endpoint=='contact' %}active{% endif %}"
+          href="{{ url_for('contact') }}">Contact</a>
+
+        {% if site_settings.enable_reservations %}
+        <a class="btn btn-primary nav-cta" href="{{ url_for('reservations') }}">Book a Table</a>
+        {% else %}
+        <a class="btn btn-primary nav-cta" href="tel:{{ site_settings.phone|replace(' ','') }}">Call Now</a> {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="main" class="site-main">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="container">
+      <div class="flash-stack" role="status" aria-live="polite">
+        {% for category, msg in messages %}
+        <div class="flash flash-{{ category|e }}">{{ msg }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+      <!-- Column 1 -->
+      <div>
+        <div class="footer-brand">
+          <div class="brand-logo-wrapper">
+            <img src="{{ url_for('static', filename='img/feastify-logo.jpeg') }}" alt="Feastify Logo"
+              class="brand-logo">
+          </div>
+          <div>
+            <div class="footer-title">Feastify</div>
+            <div class="footer-muted">Websites for cafes & restaurants.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div>
+        <div class="footer-title">Hours</div>
+        <ul class="footer-list">
+          <li><span>Mon–Fri</span><span>8:00–20:00</span></li>
+          <li><span>Sat</span><span>9:00–21:00</span></li>
+          <li><span>Sun</span><span>9:00–18:00</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div>
+        <div class="footer-title">Visit</div>
+
+        <div class="footer-visit">
+          <div class="footer-item">
+            <i class="bi bi-geo-alt"></i>
+            <span>123 Coffee Street, Your City</span>
+          </div>
+
+          <div class="footer-item">
+            <i class="bi bi-telephone"></i>
+            <a href="tel:+97798XXXXXXXX">+977 98XXXXXXXX</a>
+          </div>
+
+          <div class="footer-links">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Google Maps">Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ footer-bottom must be OUTSIDE footer-grid -->
+    <div class="container footer-bottom">
+      <small>© {{ current_year }} Cafe. All rights reserved.</small>
+
+      <small class="footer-credit">
+        Designed &amp; Developed by
+        <a href="https://feastify.food" class="agency-link" target="_blank" rel="noopener">Feastify</a>
+      </small>
+    </div>
+
+  </footer>
+
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+
+</html>
